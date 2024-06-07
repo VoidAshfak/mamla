@@ -17,7 +17,6 @@ const mamlaList = ref();
 const getMamlas = async () => {
     const mamlas = await service.getMamlaList();
     console.log(mamlas?.documents);
-
     mamlaList.value = mamlas?.documents;
 }
 
@@ -56,11 +55,16 @@ const column = {
     },
     date: {
         label: 'Date',
-
     },
+    Opt: {
+        label: 'Options'
+    }
 
 }
 
+function dateFormatter(date: string) {
+    return new Date(date).toLocaleDateString('en-IN');
+}
 
 onMounted(async () => {
     getMamlas()
@@ -127,8 +131,8 @@ onMounted(async () => {
                                 </VFlexTableCell>
 
 
-                                <VFlexTableCell :column="{ align: 'center' }">
-                                    <span>{{ item.date }}</span>
+                                <VFlexTableCell :column="{ align: 'start' }">
+                                    <span>{{ dateFormatter(item.date) }}</span>
                                 </VFlexTableCell>
 
 
@@ -143,8 +147,8 @@ onMounted(async () => {
                 </VFlexTable>
                 <!-- <AddMamlaToProfileModal v-model:openModal="openModal" /> -->
                 <!--Table Pagination-->
-                <VFlexPagination v-if="filteredData.length > 5" :item-per-page="10" :total-items="873"
-                    :current-page="42" :max-links-displayed="7" />
+                <VFlexPagination v-if="filteredData.length > 5" :item-per-page="10" :total-items="1000"
+                    :current-page="1" :max-links-displayed="7" />
             </div>
         </div>
     </div>
