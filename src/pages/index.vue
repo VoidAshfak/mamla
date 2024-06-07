@@ -43,11 +43,11 @@ useHead({
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Isto modo ne
                                     improbos quidem.
                                 </h3>
-                                <div class="buttons">
+                                <!-- <div class="buttons">
                                     <VButton :onclick="getUser" color="primary" bold rounded raised>
                                         Log Current User
                                     </VButton>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="column is-7">
                                 <img class="light-image-l hero-mockup"

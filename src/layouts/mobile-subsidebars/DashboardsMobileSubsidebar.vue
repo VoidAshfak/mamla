@@ -16,6 +16,18 @@
                         <i aria-hidden="true" class="lnil lnil-home" />
                         <span>Home</span>
                     </RouterLink>
+                    <li>
+                        <RouterLink to="/app/MamlaList">
+                            <i aria-hidden="true" class="lnil lnil-list pr-2" />
+                            Mamla List
+                        </RouterLink>
+                    </li>
+                    <li>
+                        <RouterLink to="/app/create-mamla">
+                            <i aria-hidden="true" class="lnil lnil-plus pr-2" />
+                            Create Mamla
+                        </RouterLink>
+                    </li>
                 </VCollapseLinks>
             </ul>
         </div>
