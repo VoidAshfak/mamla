@@ -3,10 +3,17 @@ import { useI18n } from 'vue-i18n'
 
 import { useDarkmode } from '/@src/stores/darkmode'
 import { usePanels } from '/@src/stores/panels'
+import authService from '/@src/backend/auth';
 
 const darkmode = useDarkmode()
 const { locale } = useI18n()
 const panels = usePanels()
+
+const logout = async () => {
+    const res = await authService.logout();
+    console.log(res);
+
+}
 
 const localFlagSrc = computed(() => {
     switch (locale.value) {
@@ -40,7 +47,7 @@ const localFlagSrc = computed(() => {
             </label>
         </div>
         <div class="toolbar-link">
-            <VIconButton color="danger" icon="lucide:log-out" />
+            <VIconButton @click="logout" color="danger" icon="lucide:log-out" />
         </div>
 
         <!-- <a tabindex="0" role="button" class="toolbar-link right-panel-trigger"
