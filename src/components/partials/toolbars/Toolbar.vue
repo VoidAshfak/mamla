@@ -5,12 +5,14 @@ import { useDarkmode } from '/@src/stores/darkmode'
 import { usePanels } from '/@src/stores/panels'
 import authService from '/@src/backend/auth';
 
+const router = useRouter();
 const darkmode = useDarkmode()
 const { locale } = useI18n()
 const panels = usePanels()
 
 const logout = async () => {
     const res = await authService.logout();
+    router.push('/');
     console.log(res);
 
 }
