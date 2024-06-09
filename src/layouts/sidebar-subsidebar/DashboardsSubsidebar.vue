@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import authService from '/@src/backend/auth';
+
 const emit = defineEmits(['close'])
+// const userLabel = await authService.getUserLabel();
 </script>
 
 <template>

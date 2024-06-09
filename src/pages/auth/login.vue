@@ -19,17 +19,15 @@ const handleLogin = async () => {
             email: email.value,
             password: password.value
         }
-        authService.login(credentials).then((res) => {
-            console.log(res?.userId);
-            if (res?.userId) {
-                router.push('/app')
-                notyf.dismissAll()
-                notyf.success(`Welcome ${res?.clientName}`)
-            } else {
-                notyf.error("Wrong email or password")
-            }
+        const user = await authService.login(credentials);
 
-        })
+        if (user && user.userId) {
+            router.push('/app')
+            notyf.dismissAll()
+            notyf.success('Welcome!')
+        } else {
+            notyf.error("Wrong email or password")
+        }
 
         isLoading.value = false
     }

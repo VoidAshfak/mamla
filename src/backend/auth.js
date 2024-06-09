@@ -21,7 +21,7 @@ export class AuthService {
                 return this.login({ email, password })
                 // return userAccount;
             } else {
-                console.log("ERROR CODE 2");
+                console.log("user account not found after creating");
                 return userAccount;
             }
         } catch (error) {
@@ -45,7 +45,14 @@ export class AuthService {
             console.log("ERROR GETING CURRENT USER");
             return null
         }
-        return null;
+    }
+
+    async getUserLabel() {
+        try {
+            return (await this.account.get()).labels
+        } catch (error) {
+            console.log("error getting labels!");
+        }
     }
 
     async logout() {

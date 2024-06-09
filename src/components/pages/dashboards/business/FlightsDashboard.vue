@@ -11,6 +11,7 @@ const router = useRouter();
 const profileMamla = ref();
 onMounted(async () => {
     const res = await authService.getCurrentUser();
+    console.log(res);
     if (!res) {
         router.push('/')
     } else {

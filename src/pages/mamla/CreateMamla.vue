@@ -31,10 +31,9 @@ const onSubmit = async () => {
     const res = await service.createMamla(mamlaDetails);
 
     console.log(res);
-
-
 }
 
+const userLabel = await authService.getUserLabel();
 
 onMounted(() => {
     authService.getCurrentUser()
@@ -43,15 +42,25 @@ onMounted(() => {
                 router.push('/')
             } else {
                 console.log(res.email);
-
             }
         })
+
+
 })
 
 </script>
 
 <template>
-    <div class="business-dashboard flights-dashboard">
+
+    <VPlaceholderPage v-if="userLabel?.length === 0" title="Only admin can access this feature"
+        subtitle="Sorry! you are not an admin. To create a mamla, you have to be an admin." larger>
+        <template #image>
+            <img class="light-image" src="/src/assets/illustrations/hammer.webp" alt="">
+            <img class="dark-image" src="/src/assets/illustrations/hammer.webp" alt="">
+        </template>
+    </VPlaceholderPage>
+
+    <div v-else class="business-dashboard flights-dashboard">
         <div class="columns">
             <div class="column is-12">
                 <form method="post" novalidate class="form-layout" @submit.prevent="onSubmit">

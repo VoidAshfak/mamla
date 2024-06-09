@@ -38,15 +38,15 @@ const addToProfile = async () => {
 <template>
     <VDropdown icon="feather:more-vertical" spaced right>
         <template #content>
-            <p @click="toggleModal" style="cursor: pointer;" role="menuitem" class="dropdown-item is-media">
-            <div class="icon">
-                <i aria-hidden="true" class="lnil lnil-plus" />
-            </div>
-            <div class="meta">
-                <span>Add</span>
-                <span>Add this case to my profile</span>
-            </div>
-            </p>
+            <a @click="toggleModal" style="cursor: pointer;" role="menuitem" class="dropdown-item is-media">
+                <div class="icon">
+                    <i aria-hidden="true" class="lnil lnil-plus" />
+                </div>
+                <div class="meta">
+                    <span>Add</span>
+                    <span>Add this case to my profile</span>
+                </div>
+            </a>
 
             <hr class="dropdown-divider">
             <a role="menuitem" href="#" class="dropdown-item is-media">
@@ -56,6 +56,16 @@ const addToProfile = async () => {
                 <div class="meta">
                     <span>Edit</span>
                     <span>Edit this case (Admin)</span>
+                </div>
+            </a>
+            <hr class="dropdown-divider">
+            <a role="menuitem" href="#" class="dropdown-item is-media">
+                <div class="icon">
+                    <i aria-hidden="true" class="lnil lnil-trash" />
+                </div>
+                <div class="meta">
+                    <span>Delete</span>
+                    <span>Delete this case (Admin)</span>
                 </div>
             </a>
 

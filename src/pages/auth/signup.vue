@@ -74,10 +74,9 @@ const onSignup = handleSubmit(async (values) => {
             password: password.value,
             name: "Asif"
         }
-        authService.createAccount(user_info);
-        authService.login({ email, password });
-        notyf.dismissAll()
-        notyf.success(`Welcome X`)
+        const res = await authService.createAccount(user_info);
+        console.log(res);
+        await authService.login({ email, password });
         router.push('/app')
         isLoading.value = false
     }
