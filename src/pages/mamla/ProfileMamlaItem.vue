@@ -17,6 +17,9 @@ const showDetailsModal = (item) => {
     selectedMamla.value = item;
 }
 
+function dateFormatter(date) {
+    return new Date(date).toLocaleDateString('en-IN');
+}
 
 const filteredData = computed(() => {
     if (!mgrFilter.value && !thanaFilter.value) {
@@ -59,26 +62,16 @@ const filteredData = computed(() => {
                 <!--Grid item-->
                 <div v-for="item in filteredData" :key="item.id" class="column is-3">
                     <div class="grid-item">
-                        <!-- <UserCardDropdown /> -->
-                        <!-- <VAvatar picture="" size="big" /> -->
-                        <!-- <h3 class="dark-inverted">
-                            Date: <span class="data">{{ item.date }}</span>
-                        </h3>
-                        <hr>
-                        <h3>
-                            MGR: <span class="data">{{ item.mgr }}</span>
-                        </h3>
-                        <hr>
-                        <h3>
-                            ST: <span class="data">{{ item.st }}</span>
-                        </h3>
-                        <hr> -->
                         <h3>
                             Mamla No: <span class="data">{{ item.mamla_no }}</span>
                         </h3>
                         <hr>
                         <h3>
                             Thana: <span class="data">{{ item.thana }}</span>
+                        </h3>
+                        <hr>
+                        <h3 class="dark-inverted">
+                            Date: <span class="data">{{ dateFormatter(item.date) }}</span>
                         </h3>
                         <hr>
                         <div class="button-wrap has-text-centered">
@@ -114,6 +107,7 @@ const filteredData = computed(() => {
         @include vuero-s-card;
 
         text-align: justify;
+        // background-color: var(--warning);
 
         &:hover,
         &:focus {
