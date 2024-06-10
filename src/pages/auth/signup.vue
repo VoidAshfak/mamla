@@ -184,7 +184,6 @@ useHead({
                                                     </p>
                                                 </VControl>
                                             </VField> -->
-
                                             <!-- <VField id="promitional">
                                                 <VControl class="setting-item">
                                                     <VCheckbox color="primary" :label="t('auth.label.promotional')"

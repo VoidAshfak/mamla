@@ -91,7 +91,7 @@ useHead({
                                             <!-- Username -->
                                             <VField>
                                                 <VControl icon="feather:user">
-                                                    <VInput v-model="email" type="text" placeholder="Username"
+                                                    <VInput v-model="email" type="text" placeholder="Email"
                                                         autocomplete="username" />
                                                 </VControl>
                                             </VField>
@@ -119,9 +119,9 @@ useHead({
                                                 </VButton>
                                             </div>
 
-                                            <div class="forgot-link has-text-centered">
+                                            <!-- <div class="forgot-link has-text-centered">
                                                 <a>Forgot Password?</a>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </form>
                                 </div>
