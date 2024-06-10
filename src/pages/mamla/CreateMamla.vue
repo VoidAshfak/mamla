@@ -88,47 +88,6 @@ onMounted(() => {
                         <div class="form-body">
                             <!--Fieldset-->
                             <div class="form-fieldset">
-
-                                <!-- 
-                                <div class="fieldset-heading">
-                                    <h4>Personal Info</h4>
-                                    <p>This helps us to know you</p>
-                                </div>
- -->
-
-                                <!-- 
-                                <div class="columns is-multiline">
-                                    <div class="column is-6">
-                                        <VField>
-                                            <VLabel>First Name</VLabel>
-                                            <VControl icon="feather:user">
-                                                <VInput type="text" placeholder="" autocomplete="given-name" />
-                                            </VControl>
-                                        </VField>
-                                    </div>
-                                    <div class="column is-6">
-                                        <VField>
-                                            <VLabel>Last Name</VLabel>
-                                            <VControl icon="feather:user">
-                                                <VInput type="text" placeholder="" autocomplete="family-name" />
-                                            </VControl>
-                                        </VField>
-                                    </div>
-                                    <div class="column is-12">
-                                        <VField>
-                                            <VLabel>Email Address</VLabel>
-                                            <VControl icon="feather:mail">
-                                                <VInput type="email" placeholder="" autocomplete="email"
-                                                    inputmode="email" />
-                                            </VControl>
-                                        </VField>
-                                    </div>
-                                </div> -->
-
-
-                            </div>
-                            <!--Fieldset-->
-                            <div class="form-fieldset">
                                 <div class="fieldset-heading">
                                     <h4>Mamla Info</h4>
                                     <p>Star (*) marked fields are required to create a mamla</p>
@@ -213,9 +172,6 @@ onMounted(() => {
                                 </div>
                             </div>
                         </div>
-
-
-
                     </div>
                 </form>
             </div>

@@ -53,7 +53,9 @@ declare module 'vue-router/auto/routes' {
     '/mamla/MamlaList': RouteRecordInfo<'/mamla/MamlaList', '/mamla/MamlaList', Record<never, never>, Record<never, never>>,
     '/mamla/ProfileMamlaItem': RouteRecordInfo<'/mamla/ProfileMamlaItem', '/mamla/ProfileMamlaItem', Record<never, never>, Record<never, never>>,
     '/modals/AddMamlaToProfileModal': RouteRecordInfo<'/modals/AddMamlaToProfileModal', '/modals/AddMamlaToProfileModal', Record<never, never>, Record<never, never>>,
+    '/modals/MamlaEditModal': RouteRecordInfo<'/modals/MamlaEditModal', '/modals/MamlaEditModal', Record<never, never>, Record<never, never>>,
     '/modals/ShowMamlaDetailsModal': RouteRecordInfo<'/modals/ShowMamlaDetailsModal', '/modals/ShowMamlaDetailsModal', Record<never, never>, Record<never, never>>,
+    '/modals/YseNoModal': RouteRecordInfo<'/modals/YseNoModal', '/modals/YseNoModal', Record<never, never>, Record<never, never>>,
   }
 }
 

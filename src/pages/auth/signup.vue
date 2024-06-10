@@ -19,6 +19,7 @@ const { t } = useI18n()
 
 const email = ref("")
 const password = ref("")
+// const mobileNumber = ref()
 
 // const create = () => {
 //     let user_info = {
@@ -47,6 +48,10 @@ const validationSchema = toTypedSchema(
             passwordCheck: zod.string({
                 required_error: t('auth.errors.passwordCheck.required'),
             }),
+            // mobileNumber: zod
+            //     .number({
+            //         required_error: t('auth.errors.mobileNumber.required'),
+            //     })
         })
         .refine((data) => data.password === data.passwordCheck, {
             message: t('auth.errors.passwordCheck.match'),
@@ -60,6 +65,7 @@ const { handleSubmit } = useForm({
         email: '',
         password: '',
         passwordCheck: '',
+        // mobileNumber: +880,
     },
 })
 
@@ -72,7 +78,7 @@ const onSignup = handleSubmit(async (values) => {
         let user_info = {
             email: email.value,
             password: password.value,
-            name: "Asif"
+            // mobileNumber: mobileNumber.value
         }
         const res = await authService.createAccount(user_info);
         console.log(res);
@@ -168,6 +174,16 @@ useHead({
                                                     </p>
                                                 </VControl>
                                             </VField>
+
+                                            <!-- <VField id="mobileNumber" v-slot="{ field }">
+                                                <VControl icon="feather:phone">
+                                                    <VInput v-model="mobileNumber" type="number"
+                                                        :placeholder="t('auth.errors.mobileNumber.required')" />
+                                                    <p v-if="field?.errorMessage" class="help is-danger">
+                                                        {{ field.errorMessage }}
+                                                    </p>
+                                                </VControl>
+                                            </VField> -->
 
                                             <!-- <VField id="promitional">
                                                 <VControl class="setting-item">

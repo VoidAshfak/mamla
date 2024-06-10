@@ -3,7 +3,6 @@ import { ref, toRef } from 'vue'
 import authService from '/@src/backend/auth';
 import service from '/@src/backend/mamlas';
 import OptionsDropdown from '../dropdowns/OptionsDropdown.vue';
-import AddMamlaToProfileModal from '../modals/AddMamlaToProfileModal.vue';
 
 const router = useRouter();
 
@@ -66,15 +65,21 @@ function dateFormatter(date: string) {
     return new Date(date).toLocaleDateString('en-IN');
 }
 
+const isAdmin = ref(false);
+
+
 onMounted(async () => {
     getMamlas()
     const res = await authService.getCurrentUser();
     if (!res) {
         router.push('/')
-    } else {
-        console.log(res.name);
-
     }
+
+    const label = await authService.getUserLabel();
+    isAdmin.value = label?.length ? true : false
+
+    // console.log("Admin Check: ", label);
+
 
 })
 
@@ -92,7 +97,6 @@ onMounted(async () => {
                         <input v-model="filterForThana" class="input custom-text-filter" placeholder="Thana...">
                     </VControl>
                 </div>
-
 
                 <VFlexTable :data="filteredData" :columns="column" rounded :separators="true" class="cell-center">
                     <template #body>
@@ -137,7 +141,7 @@ onMounted(async () => {
 
 
                                 <VFlexTableCell :column="{ align: 'end' }">
-                                    <OptionsDropdown :item="item" />
+                                    <OptionsDropdown :item="item" :isAdmin="isAdmin" />
                                 </VFlexTableCell>
 
 

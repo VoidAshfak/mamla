@@ -71,39 +71,34 @@ export class Service {
 
 
 
-    // async updatePost(slug, { title, content, featuredImage, status }) {
-    //     try {
-    //         return await this.databases.updateDocument(
-    //             conf.appwriteDatabaseId,
-    //             conf.appwriteCollectionId,
-    //             slug,
-    //             {
-    //                 title,
-    //                 content,
-    //                 featuredImage,
-    //                 status,
-    //             }
-    //         )
-    //     } catch (error) {
-    //         console.log("ERROR UPDATING");
-    //     }
-    // }
+    async updateMamla(documentId, { mgr, st, mamla_no, date, thana, note }) {
+        try {
+            return await this.databases.updateDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                documentId,
+                { mgr, st, mamla_no, date, thana, note }
+            )
+        } catch (error) {
+            console.log("mamla update failed");
+        }
+    }
 
 
 
-    // async deletePost(slug) {
-    //     try {
-    //         await this.databases.deleteDocument(
-    //             conf.appwriteDatabaseId,
-    //             conf.appwriteCollectionId,
-    //             slug
-    //         )
-    //         return true;
-    //     } catch (error) {
-    //         console.log("ERROR DELETING POST");
-    //         return false;
-    //     }
-    // }
+    async deleteMamla(documentId) {
+        try {
+            await this.databases.deleteDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                documentId
+            )
+            return true;
+        } catch (error) {
+            console.log("ERROR DELETING Mamla");
+            return false;
+        }
+    }
 
     // async getPost(slug) {
     //     try {
