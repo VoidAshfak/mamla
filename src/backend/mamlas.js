@@ -134,7 +134,8 @@ export class Service {
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 [
-                    Query.contains("userList", userId)
+                    Query.limit(100),
+                    Query.contains("userList", userId),
                 ]
             )
             return list?.documents;

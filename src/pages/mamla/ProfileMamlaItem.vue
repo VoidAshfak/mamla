@@ -21,6 +21,19 @@ function dateFormatter(date) {
     return new Date(date).toLocaleDateString('en-IN');
 }
 
+function getBackgroundColor(date) {
+    const currentDate = new Date();
+    const fiveDaysInMilliseconds = 5 * 24 * 60 * 60 * 1000; // 5 days in milliseconds
+    const oneDaysInMilliseconds = 2 * 24 * 60 * 60 * 1000; // 1 days in milliseconds
+    const difference = Math.abs(currentDate - new Date(date));
+    if (difference <= oneDaysInMilliseconds) {
+        return "var(--danger)"
+    } else if (difference <= fiveDaysInMilliseconds) {
+        return "var(--warning)"
+    }
+    return ""
+}
+
 const filteredData = computed(() => {
     if (!mgrFilter.value && !thanaFilter.value) {
         return mamlasRef.value
@@ -61,7 +74,7 @@ const filteredData = computed(() => {
             <TransitionGroup name="list" tag="div" class="columns is-multiline is-flex-tablet-p is-half-tablet-p">
                 <!--Grid item-->
                 <div v-for="item in filteredData" :key="item.id" class="column is-3">
-                    <div class="grid-item">
+                    <div class="grid-item" :style="{ backgroundColor: getBackgroundColor(item.date) }">
                         <h3>
                             Mamla No: <span class="data">{{ item.mamla_no }}</span>
                         </h3>

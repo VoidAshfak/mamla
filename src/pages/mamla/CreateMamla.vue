@@ -2,8 +2,10 @@
 import { ref, toRef } from 'vue'
 import authService from '/@src/backend/auth';
 import service from '/@src/backend/mamlas';
+import { useNotyf } from '/@src/composable/useNotyf';
 
 
+const notyf = useNotyf()
 const router = useRouter();
 
 const mgr = ref('')
@@ -27,10 +29,14 @@ const onSubmit = async () => {
         note: note.value,
     }
     console.log(mamlaDetails)
-
-    const res = await service.createMamla(mamlaDetails);
-
-    console.log(res);
+    if (mgr.value && st.value && mamlaNumber.value && date.value && thana.value) {
+        const res = await service.createMamla(mamlaDetails);
+        console.log(res);
+        notyf.success("Mamla Created")
+        router.push('/app')
+    } else {
+        notyf.error("Please fill all data!")
+    }
 }
 
 const userLabel = await authService.getUserLabel();

@@ -151,8 +151,8 @@ onMounted(async () => {
                 </VFlexTable>
                 <!-- <AddMamlaToProfileModal v-model:openModal="openModal" /> -->
                 <!--Table Pagination-->
-                <!-- <VFlexPagination v-if="filteredData?.length > 10" :item-per-page="2" :total-items="1000"
-                    :current-page="1" :max-links-displayed="5" /> -->
+                <VFlexPagination v-if="filteredData?.length > 10" :item-per-page="15" :total-items="200"
+                    :current-page="1" :max-links-displayed="5" />
             </div>
         </div>
     </div>
