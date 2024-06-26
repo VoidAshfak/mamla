@@ -120,6 +120,9 @@ export class Service {
             return await this.databases.listDocuments(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
+                [
+                    Query.limit(1000)
+                ]
             )
         } catch (error) {
             console.log("ERROR GET ALL POSTS");

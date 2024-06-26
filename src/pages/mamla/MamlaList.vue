@@ -103,18 +103,6 @@ onMounted(async () => {
                         <TransitionGroup name="list" tag="div" class="flex-list-inner">
                             <!--Table item-->
                             <div v-for="item in filteredData" :key="item.$id" class="flex-table-item">
-
-                                <!-- <VFlexTableCell :column="{ media: true, grow: true }">
-                                    <VAvatar :picture="item.picture" />
-                                    <div>
-                                        <span class="item-name dark-inverted">{{ item.name }}</span>
-                                        <span class="item-meta">
-                                            <span>
-                                                <i aria-hidden="true" class="iconify" data-icon="feather:clock" />{{
-                                                    item.duration }}</span>
-                                        </span>
-                                    </div>
-                                </VFlexTableCell> -->
                                 <VFlexTableCell>
                                     <span>{{ item.mgr }}</span>
                                 </VFlexTableCell>
@@ -151,8 +139,8 @@ onMounted(async () => {
                 </VFlexTable>
                 <!-- <AddMamlaToProfileModal v-model:openModal="openModal" /> -->
                 <!--Table Pagination-->
-                <VFlexPagination v-if="filteredData?.length > 10" :item-per-page="15" :total-items="200"
-                    :current-page="1" :max-links-displayed="5" />
+                <!-- <VFlexPagination v-if="filteredData?.length > 10" :item-per-page="15" :total-items="200"
+                    :current-page="1" :max-links-displayed="5" /> -->
             </div>
         </div>
     </div>
